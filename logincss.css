@@ -1,3 +1,14 @@
+:root {
+    --primary-color: #506D11;
+    --secondary-color: #76b012;
+    --background-gradient: linear-gradient(-0deg, #262F12 0%, #506D11 55%, #76b012 100%);
+    --input-border-color: white;
+    --input-focus-border-color: #A1EE12;
+    --button-border-color: #76b012;
+    --button-hover-shadow-color: #A1EE12;
+}
+
+
 body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(-0deg, #262F12 0%, #506D11 55%, #76b012 100%);
@@ -9,7 +20,7 @@ body {
 }
 
 .login-card {
-    background: #506D11;
+    background: var(--primary-color);
     padding: 2.5rem;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -41,14 +52,14 @@ input:hover {
 }
 input:focus {
     outline: none;
-    border-color: #A1EE12;
-    box-shadow: 0 0 5px #A1EE12;
-    border: #A1EE12 solid 1.5px;
+    border-color: var(--input-focus-border-color);
+    box-shadow: 0 0 5px var(--input-focus-border-color);
+    border: var(--input-focus-border-color) solid 1.5px;
 }
 
 input:active {
-    border-color: #A1EE12;
-    box-shadow: 0 0 5px #A1EE12;
+    border-color: var(--input-focus-border-color);
+    box-shadow: 0 0 5px var(--input-focus-border-color);
 }
 button {
     width: 100%;
@@ -64,9 +75,17 @@ button {
 }
 
 button:hover {
-box-shadow: #A1EE12 0px 0px 6px;
-border: #A1EE12 solid 1.5px;
+box-shadow: var(--button-hover-shadow-color) 0px 0px 6px;
+border: var(--button-hover-shadow-color) solid 1.5px;
 }
+
+button:focus {
+    outline: none;
+    border-color: var(--input-focus-border-color);
+    box-shadow: 0 0 5px var(--input-focus-border-color);
+    border: var(--input-focus-border-color) solid 1.5px;
+}
+
 h2 {
     color: white;
     margin-bottom: 20px;
