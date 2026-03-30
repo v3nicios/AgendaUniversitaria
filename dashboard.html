@@ -3,18 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UniAgenda - Dashboard Anual</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <title>Unigenda - Dashboard 2026</title>
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Calendário Acadêmico 2026</h1>
-        <button class="logout-btn" id="logout-btn">Sair</button>
+    <header class="main-header">
+        <h1 id="page-title">Calendário Acadêmico 2026</h1>
+        <div>
+            <button id="btn-voltar" class="hidden" onclick="showDashboard()">⬅ Voltar</button>
+            <button id="logout-btn">Sair</button>
+            <button id="btn-tracker" onclick="showTracker()">Ver Entregas</button>
+        </div>
+    </header>
+
+   <main id="year-grid" class="year-container">
+   </main>
+
+    <main id="view-month" class="hidden">
+        <div class="calendar-controls">
+            <button onclick="abrirFormulario()">+ Novo Compromisso</button>
+        </div>
+        <div class="calendar-detailed-grid" id="calendar-detailed-grid">
+            </div>
+    </main>
+    
+
+    <div id="modal-tarefa" class="modal hidden">
+        <div class="modal-content-small">
+            <h3>Novo Compromisso</h3>
+            <input type="text" id="task-title" placeholder="Título da atividade">
+            <input type="date" id="task-date">
+            <select id="task-type">
+                <option value="estudo">Estudo/Prova</option>
+                <option value="entrega">Entrega de Trabalho</option>
+            </select>
+            <div class="modal-actions">
+                <button onclick="salvarTarefa()">Salvar</button>
+                <button onclick="fecharFormulario()" style="background:#666">Cancelar</button>
+            </div>
+        </div>
     </div>
 
-    <div class="year-grid" id="year-grid">
-        </div>
-
-    <script src="dashboard.js"></script>
+    <script src="javascript/dashboard.js"></script>
 </body>
 </html>

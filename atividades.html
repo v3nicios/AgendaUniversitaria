@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniAgenda - Minhas Atividades</title>
+    <link rel="stylesheet" href="css/atividades.css">
+</head>
+<body onload="renderTracker()"> <header class="main-header">
+        <h1 id="page-title">Acompanhamento de Atividades</h1>
+        <div>
+            <button onclick="window.location.href='dashboard.html'">⬅ Voltar ao Calendário</button>
+            <button id="logout-btn">Sair</button>
+        </div>
+    </header>
+
+    <main class="container">
+    <div class="tracker-header">
+        <p> Organização de prazos e entregas</p>
+    </div>
+    
+    <div id="section-em-dia">
+        <h2 style="color: white; border-bottom: 2px solid var(--accent-green); padding-bottom: 10px; margin-top: 30px;">
+            Próximas Entregas
+        </h2>
+        <div id="list-em-dia" class="tracker-grid"></div>
+    </div>
+    <div id="section-concluidas" class="hidden">
+        <h2 style="color: white; border-bottom: 2px solid var(--accent-blue); padding-bottom: 10px; margin-top: 30px;">
+            Atividades Concluídas
+        </h2>
+        <div id="list-concluidas" class="tracker-grid"></div>
+        <div id="section-atrasadas" class="hidden">
+            <h2 style="color: white; border-bottom: 2px solid var(--accent-red); padding-bottom: 10px; margin-top: 30px;">
+                Atividades Atrasadas
+            </h2>
+            <div id="list-atrasadas" class="tracker-grid"></div>
+        </div>
+</main>
+
+    <script src="/Javascript/atividades.js"></script>
+</body>
+</html>
