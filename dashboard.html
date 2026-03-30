@@ -10,9 +10,9 @@
     <header class="main-header">
         <h1 id="page-title">Calendário Acadêmico 2026</h1>
         <div>
-            <button id="btn-voltar" class="hidden" onclick="showDashboard()">⬅ Voltar</button>
+            <button id="btn-voltar" class="hidden" onclick="showDashboard()">Voltar</button>
             <button id="logout-btn">Sair</button>
-            <button id="btn-tracker" onclick="showTracker()">Ver Entregas</button>
+            <button id="btn-tracker" onclick="showTracker()">Ver Atividades</button>
         </div>
     </header>
 
@@ -21,7 +21,7 @@
 
     <main id="view-month" class="hidden">
         <div class="calendar-controls">
-            <button onclick="abrirFormulario()">+ Novo Compromisso</button>
+            <button onclick="abrirFormulario()" class="novocompri"> Novo Compromisso</button>
         </div>
         <div class="calendar-detailed-grid" id="calendar-detailed-grid">
             </div>
@@ -34,12 +34,13 @@
             <input type="text" id="task-title" placeholder="Título da atividade">
             <input type="date" id="task-date">
             <select id="task-type">
-                <option value="estudo">Estudo/Prova</option>
+                <option value="estudo">Estudo</option>
+                <option value="entrega">Prova</option>
                 <option value="entrega">Entrega de Trabalho</option>
             </select>
             <div class="modal-actions">
-                <button onclick="salvarTarefa()">Salvar</button>
-                <button onclick="fecharFormulario()" style="background:#666">Cancelar</button>
+                <button onclick="salvarTarefa()" class="bnt-salvarmodal">Salvar </button>
+                <button onclick="fecharFormulario()" class="bnt-cancelarmodal">Cancelar</button>
             </div>
         </div>
     </div>

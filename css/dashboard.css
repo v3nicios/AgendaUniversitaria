@@ -130,20 +130,77 @@ body {
 }
 
 .modal-content-small {
-    background: #2d3748;
+    background: var(--primary-color);
     padding: 25px;
     border-radius: 10px;
     width: 300px;
     color: white;
 }
+.modal-content-small select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid white;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: var(--primary-color);
+    color: white;
+}
+::-webkit-input-placeholder {
+    color: white;
+}
 
-.modal-content-small input, .modal-content-small select {
+.modal-content-small input{
     width: 100%;
     margin-bottom: 10px;
     padding: 8px;
-    border-radius: 4px;
-    border: none;
+    border: 1px solid white;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: white;
+    
 }
+
+/* Estilos para hover e foco */
+
+input:hover {
+    outline: none;
+    border-color: white;
+    box-shadow: 0 0 5px white;
+    border: white solid 1.5px;
+}
+input:focus {
+    outline: none;
+    border-color: var(--input-focus-border-color);
+    box-shadow: 0 0 5px var(--input-focus-border-color);
+    border: var(--input-focus-border-color) solid 1.5px;
+}
+
+input:active {
+    border-color: var(--input-focus-border-color);
+    box-shadow: 0 0 5px var(--input-focus-border-color);
+}
+
+select:hover {
+    outline: none;
+    border-color: white;
+    box-shadow: 0 0 5px white;
+    border: white solid 1.5px;
+}
+select:focus {
+    outline: none;
+    border-color: var(--input-focus-border-color);
+    box-shadow: 0 0 5px var(--input-focus-border-color);
+    border: var(--input-focus-border-color) solid 1.5px;
+}
+
+select:active {
+    border-color: var(--input-focus-border-color);
+    box-shadow: 0 0 5px var(--input-focus-border-color);
+}
+
+/* Estilos para hover e foco */
 .calendar-detailed-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr); 
@@ -211,6 +268,77 @@ border: var(--button-hover-shadow-color) solid 1.5px;
 }
 
 header button:focus {
+    outline: none;
+    border-color: var(--input-focus-border-color);
+    box-shadow: 0 0 5px var(--input-focus-border-color);
+    border: var(--input-focus-border-color) solid 1.5px;
+}
+
+.modal-actions{
+    display: flex;
+    gap: 10px;
+}
+.bnt-salvarmodal {
+     width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    border: var(--text-muted) solid 1px;
+}
+.bnt-salvarmodal:hover {
+    box-shadow: var(--button-hover-shadow-color) 0px 0px 6px;
+border: var(--button-hover-shadow-color) solid 1.5px;
+}
+.bnt-salvarmodal:focus {
+    outline: none;
+    border-color: var(--input-focus-border-color);
+    box-shadow: 0 0 5px var(--input-focus-border-color);
+    border: var(--input-focus-border-color) solid 1.5px;
+}
+
+.bnt-cancelarmodal {
+    width: 100%;
+    padding: 12px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    border: var(--text-muted) solid 1px;
+    
+}
+.bnt-cancelarmodal:hover {
+    box-shadow: var(--accent-red) 0px 0px 6px;
+    border: var(--accent-red) solid 1.5px;
+}
+.bnt-cancelarmodal:focus {
+    outline: none;
+    border-color: var(--accent-red);
+    box-shadow: 0 0 5px var(--accent-red);
+    border: var(--accent-red) solid 1.5px;
+}
+
+.novocompri {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    border: var(--text-muted) solid 1px;
+}
+.novocompri:hover {
+    box-shadow: var(--button-hover-shadow-color) 0px 0px 6px;
+border: var(--button-hover-shadow-color) solid 1.5px;
+}
+.novocompri:focus {
     outline: none;
     border-color: var(--input-focus-border-color);
     box-shadow: 0 0 5px var(--input-focus-border-color);
