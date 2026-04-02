@@ -1,4 +1,4 @@
-document.getElementById('logout-btn').onclick = () => window.location.href = 'login.html';
+document.getElementById('logout-btn').onclick = () => window.location.href = 'index.html';
 
 
 function renderTracker() {

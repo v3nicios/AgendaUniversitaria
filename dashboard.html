@@ -8,20 +8,26 @@
 </head>
 <body>
     <header class="main-header">
+         <div class="header-buttons">
+
+             <button id="btn-voltar" class="hidden" onclick="showDashboard()">Voltar</button>
+            </div>
         <h1 id="page-title">Calendário Acadêmico 2026</h1>
         <div class="header-buttons">
-            <button id="btn-voltar" class="hidden" onclick="showDashboard()">Voltar</button>
+            <button onclick="abrirFormulario()" class="novocompri" id="novocomprihidden">+Compromisso</button>
             <button id="btn-tracker" onclick="showTracker()">Atividades</button>
             <button id="logout-btn">Sair</button>
+
         </div>
     </header>
 
    <main id="year-grid" class="year-container">
+
    </main>
 
     <main id="view-month" class="hidden">
         <div class="calendar-controls">
-            <button onclick="abrirFormulario()" class="novocompri"> Novo Compromisso</button>
+            <button onclick="abrirFormulario()" class="novocompri"> + Compromisso</button>
         </div>
         <div class="calendar-detailed-grid" id="calendar-detailed-grid">
             </div>

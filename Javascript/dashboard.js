@@ -77,7 +77,7 @@ function renderDashboard() {
 
 
 
-document.getElementById('logout-btn').onclick = () => window.location.href = 'login.html';
+document.getElementById('logout-btn').onclick = () => window.location.href = 'index.html';
 document.getElementById('btn-tracker').onclick = () => {window.location.href = 'atividades.html'; renderTracker();};
 
 
@@ -87,6 +87,7 @@ function showDashboard() {
     document.getElementById('view-month').classList.add('hidden');
     document.getElementById('btn-voltar').classList.add('hidden');
     document.getElementById('page-title').innerText = "Calendário Acadêmico 2026";
+    document.getElementById('novocomprihidden').classList.remove('hidden');
     renderDashboard();
 }
 
@@ -96,7 +97,7 @@ function openMonthDetail(index) {
     document.getElementById('view-month').classList.remove('hidden');
     document.getElementById('btn-voltar').classList.remove('hidden');
     document.getElementById('page-title').innerText = `${mesesInfo[index].nome} 2026`;
-
+    document.getElementById('novocomprihidden').classList.add('hidden');
     renderMonthView();
 }
 
