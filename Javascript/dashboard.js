@@ -4,7 +4,7 @@ let mesAtivoIndex = null;
 const mesesInfo = [
     { nome: "Janeiro", dias: 31, feriados: [{ d: 1, n: "Ano Novo", t: "Nacional" }] },
     { nome: "Fevereiro", dias: 28, feriados: [{ d: 16, n: "Carnaval", t: "Facultativo" }] },
-    { nome: "Março", dias: 31, feriados: [{ d: 30, n: "Hoje", t: "Atual" }] },
+    { nome: "Março", dias: 31, feriados: [{d: 8, n: "Dia da Mulher", t: "Facultativo"}] },
     { nome: "Abril", dias: 30, feriados: [{ d: 10, n: "Páscoa", t: "Religioso" }] },
     { nome: "Maio", dias: 31, feriados: [{ d: 1, n: "Dia do Trabalho", t: "Nacional" }] },
     { nome: "Junho", dias: 30, feriados: [{ d: 20, n: "Corpus Christi", t: "Religioso" }] },
@@ -16,55 +16,66 @@ const mesesInfo = [
     { nome: "Dezembro", dias: 31, feriados: [{ d: 25, n: "Natal", t: "Nacional" }] }
 ];
 
+
+
 function renderDashboard() {
     const container = document.getElementById('year-grid');
     container.innerHTML = ''; 
-
+    
     mesesInfo.forEach((mes, index) => { 
         const card = document.createElement('div');
         card.className = 'month-card';
         
         
         card.onclick = () => openMonthDetail(index);
-
-        card.innerHTML = `
-            <div class="month-name">${mes.nome} 2026</div>
-            <div class="days-header">
-                <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
-            </div>
-            <div class="days-grid">
-                ${generateDays(mes)}
-            </div>
-            <div class="legend-section">
-                <p style="color: var(--text-muted); margin-bottom: 5px;">Feriados e datas:</p>
-                ${mes.feriados.map(f => `
-                    <div class="legend-item">
-                        <span style="color: var(--accent-blue)">${f.d}</span> 
-                        <span>${f.n}</span> 
-                        <span class="tag">${f.t}</span>
-                    </div>
-                `).join('')}
-            </div>
-        `;
-        container.appendChild(card);
-    });
-}
-
-function generateDays(mes) {
-    let html = '';
-    for (let i = 1; i <= mes.dias; i++) {
-        let extraClass = '';
-        const feriado = mes.feriados.find(f => f.d === i);
         
-        if (feriado) {
-            extraClass = feriado.t === 'Nacional' ? 'day-holiday' : 
-                         feriado.t === 'Atual' ? 'day-today' : 'day-event';
-        }
-
-        html += `<div class="day-cell ${extraClass}">${i}</div>`;
+        card.innerHTML = `
+        <div class="month-name">${mes.nome} 2026</div>
+        <div class="days-header">
+        <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
+        </div>
+        <div class="days-grid">
+        ${generateDays(mes)}
+        </div>
+        <div class="legend-section">
+        <p style="color: var(--text-muted); margin-bottom: 5px;">Feriados e datas:</p>
+        ${mes.feriados.map(f => `
+            <div class="legend-item">
+            <span style="color: var(--accent-blue)">${f.d}</span> 
+            <span>${f.n}</span> 
+            <span class="tag">${f.t}</span>
+            </div>
+            `).join('')}
+            </div>
+            `;
+            container.appendChild(card);
+        });
     }
-    return html;
-}
+
+    function generateDays(mes) {
+        const hoje = new Date();
+        const diaAtual = hoje.getDate();
+        const mesAtualIndex = hoje.getMonth(); 
+        const anoAtual = hoje.getFullYear();
+    
+        let html = '';
+        const mesSendoRenderizadoIndex = mesesInfo.findIndex(m => m.nome === mes.nome);
+    
+        for (let i = 1; i <= mes.dias; i++) {
+            let extraClass = '';
+            const feriado = mes.feriados.find(f => f.d === i);
+            if (i === diaAtual && mesSendoRenderizadoIndex === mesAtualIndex) {
+                extraClass = 'day-today'; 
+            } else if (feriado) {
+                extraClass = feriado.t === 'Nacional' ? 'day-holiday' : 'day-event';
+            }
+    
+            html += `<div class="day-cell ${extraClass}">${i}</div>`;
+        }
+        return html;
+    }
+
+
 
 document.getElementById('logout-btn').onclick = () => window.location.href = 'login.html';
 document.getElementById('btn-tracker').onclick = () => {window.location.href = 'atividades.html'; renderTracker();};
@@ -85,6 +96,7 @@ function openMonthDetail(index) {
     document.getElementById('view-month').classList.remove('hidden');
     document.getElementById('btn-voltar').classList.remove('hidden');
     document.getElementById('page-title').innerText = `${mesesInfo[index].nome} 2026`;
+
     renderMonthView();
 }
 

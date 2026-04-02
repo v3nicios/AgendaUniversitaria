@@ -8,7 +8,10 @@
     --button-border-color: #76b012;
     --button-hover-shadow-color: #A1EE12;
 }
-
+.logo {
+    width: 100px;
+    height: 100px;
+}
 
 body {
     font-family: 'Inter', sans-serif;
@@ -62,6 +65,7 @@ input:active {
     border-color: var(--input-focus-border-color);
     box-shadow: 0 0 5px var(--input-focus-border-color);
 }
+
 button {
     width: 100%;
     padding: 12px;

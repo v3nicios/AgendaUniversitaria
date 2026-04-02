@@ -19,10 +19,12 @@
 
 body {
     background: var(--background-gradient);
+    min-height: 100vh; 
     color: var(--text-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 20px;
+
 }
 
 .main-header {
@@ -83,7 +85,7 @@ body {
 .day-cell:hover { background: var(--button-border-color); }
 
 .day-holiday { background-color: var(--accent-red); color: white; }
-.day-event { border: 2px solid var(--accent-blue); }
+.day-event { border: 2px solid var(--accent-blue) ; background: grey; }
 .day-today { background-color: var(--accent-green); color: white; 
     animation: pulse 2s infinite;
 }
@@ -95,7 +97,7 @@ body {
 
 .legend-section {
     margin-top: 20px;
-    border-top: 1px solid #4a5568;
+    border-top: 1px solid #ffffff;
     padding-top: 10px;
     font-size: 0.75rem;
 }
@@ -145,10 +147,13 @@ body {
     box-sizing: border-box;
     background-color: var(--primary-color);
     color: white;
+    
 }
 ::-webkit-input-placeholder {
     color: white;
 }
+
+
 
 .modal-content-small input{
     width: 100%;
@@ -206,22 +211,23 @@ select:active {
     grid-template-columns: repeat(7, 1fr); 
     grid-auto-rows: minmax(120px, auto);
     gap: 1px;
-    background-color: rgba(255, 255, 255, 0.1); 
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--background-gradient); 
 }
 
 .day-detailed {
-    background-color: var(--terciary-color);
+    background-color: var(--primary-color);
     padding: 10px;
     display: flex;
     flex-direction: column;
     min-height: 120px;
+    border: var(--button-border-color) solid 1px;
 }
 
 .day-label {
     font-weight: bold;
-    color: var(--secondary-color);
+    color:white;
     margin-bottom: 8px;
+    font-size: 1.25rem;
 }
 
 .event-item {
@@ -343,4 +349,9 @@ border: var(--button-hover-shadow-color) solid 1.5px;
     border-color: var(--input-focus-border-color);
     box-shadow: 0 0 5px var(--input-focus-border-color);
     border: var(--input-focus-border-color) solid 1.5px;
+}
+
+.header-buttons{
+    display: flex;
+    gap: 10px;
 }
