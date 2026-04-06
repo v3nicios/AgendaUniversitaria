@@ -1,38 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unigenda - Dashboard 2026</title>
     <link rel="stylesheet" href="css/dashboard.css">
 </head>
+
 <body>
     <header class="main-header">
-         <div class="header-buttons">
-
-             <button id="btn-voltar" class="hidden" onclick="showDashboard()">Voltar</button>
+    
+            <div id="btn-voltar" class="hidden" onclick="showDashboard()">
+            <div class="button-box">
+                <span class="button-elem">
+                    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                        d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                        ></path>
+                    </svg>
+                </span>
+                <span class="button-elem">
+                    <svg viewBox="0 0 46 40">
+                        <path
+                        d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
+                        ></path>
+                    </svg>
+                </span>
             </div>
+        </div>
+    
         <h1 id="page-title">Calendário Acadêmico 2026</h1>
         <div class="header-buttons">
-            <button onclick="abrirFormulario()" class="novocompri" id="novocomprihidden">+Compromisso</button>
+            
+            <button onclick="abrirFormulario()"
+            class="novocompri" >
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24"
+                height="24" fill="none" class="svg-icon">
+                <g stroke-width="2" stroke-linecap="round" stroke="#fff">
+                    <rect y="5" x="4" width="16" rx="2" height="16"></rect>
+                    <path d="m8 3v4"></path>
+                    <path d="m16 3v4"></path>
+                    <path d="m4 11h16"></path>
+                </g></svg> <span>
+                    Add
+                </span>
+            </button>
+
             <button id="btn-tracker" onclick="showTracker()">Atividades</button>
             <button id="logout-btn">Sair</button>
 
         </div>
     </header>
 
-   <main id="year-grid" class="year-container">
+    <main id="year-grid" class="year-container">
 
-   </main>
+    </main>
 
     <main id="view-month" class="hidden">
         <div class="calendar-controls">
-            <button onclick="abrirFormulario()" class="novocompri"> + Compromisso</button>
+           
         </div>
         <div class="calendar-detailed-grid" id="calendar-detailed-grid">
-            </div>
+        </div>
     </main>
-    
+
 
     <div id="modal-tarefa" class="modal hidden">
         <div class="modal-content-small">
@@ -53,4 +85,5 @@
 
     <script src="Javascript/dashboard.js"></script>
 </body>
+
 </html>
