@@ -52,28 +52,42 @@ function renderDashboard() {
         });
     }
 
-    function generateDays(mes) {
-        const hoje = new Date();
-        const diaAtual = hoje.getDate();
-        const mesAtualIndex = hoje.getMonth(); 
-        const anoAtual = hoje.getFullYear();
+ function generateDays(mes) {
+    const hoje = new Date();
+    const diaAtual = hoje.getDate();
+    const mesAtualIndex = hoje.getMonth();
+    const anoAtual = hoje.getFullYear();
+
+    const mesSendoRenderizadoIndex = mesesInfo.findIndex(m => m.nome === mes.nome);
     
-        let html = '';
-        const mesSendoRenderizadoIndex = mesesInfo.findIndex(m => m.nome === mes.nome);
-    
-        for (let i = 1; i <= mes.dias; i++) {
-            let extraClass = '';
-            const feriado = mes.feriados.find(f => f.d === i);
-            if (i === diaAtual && mesSendoRenderizadoIndex === mesAtualIndex) {
-                extraClass = 'day-today'; 
-            } else if (feriado) {
-                extraClass = feriado.t === 'Nacional' ? 'day-holiday' : 'day-event';
-            }
-    
-            html += `<div class="day-cell ${extraClass}">${i}</div>`;
-        }
-        return html;
+    const primeiroDiaDaSemana = new Date(2026, mesSendoRenderizadoIndex, 1).getDay();
+
+    let html = '';
+
+    for (let x = 0; x < primeiroDiaDaSemana; x++) {
+        html += `<div class="day-cell empty"></div>`;
     }
+
+    let totalDias = mes.dias;
+    if (mes.nome === "Fevereiro" && ((2026 % 4 === 0 && 2026 % 100 !== 0) || 2026 % 400 === 0)) {
+        totalDias = 29;
+    }
+
+    for (let i = 1; i <= totalDias; i++) {
+        let extraClass = '';
+        const feriado = mes.feriados.find(f => f.d === i);
+        
+        if (i === diaAtual && mesSendoRenderizadoIndex === mesAtualIndex && anoAtual === 2026) {
+            extraClass = 'day-today';
+        } else if (feriado) {
+            extraClass = feriado.t === 'Nacional' ? 'day-holiday' : 'day-event';
+        }
+
+        html += `<div class="day-cell ${extraClass}">${i}</div>`;
+    }
+    
+    return html;
+}
 
 
 
@@ -105,10 +119,11 @@ function salvarTarefa() {
     const titulo = document.getElementById('task-title').value;
     const data = document.getElementById('task-date').value;
     const tipo = document.getElementById('task-type').value;
+    const descricao = document.getElementById('task-description').value;
 
     if (!titulo || !data) return alert("Preencha os campos!");
 
-    const novaTarefa = { id: Date.now(), titulo, data, tipo };
+    const novaTarefa = { id: Date.now(), titulo, data, tipo,descricao };
     tarefas.push(novaTarefa);
     
     
@@ -135,7 +150,7 @@ function renderMonthView() {
             <span class="day-label">${i}</span>
             <div class="event-container">
                 ${tarefasDoDia.map(t => `
-                    <div class="event-item ${t.tipo}">${t.titulo}</div>
+                    <div class="event-item ${t.tipo}">${t.titulo} - ${t.descricao || ''}</div>
                 `).join('')}
             </div>
         `;
@@ -144,7 +159,9 @@ function renderMonthView() {
 }
 
 function abrirFormulario() { document.getElementById('modal-tarefa').classList.remove('hidden'); }
-function fecharFormulario() { document.getElementById('modal-tarefa').classList.add('hidden'); }
+function fecharFormulario() { document.getElementById('modal-tarefa').classList.add('hidden'); document.getElementById('task-title').value = '';
+    document.getElementById('task-date').value = '';
+    document.getElementById('task-description').value = ''; }
 
 
 
