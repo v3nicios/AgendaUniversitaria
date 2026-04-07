@@ -95,3 +95,67 @@ h2 {
     color: white;
     margin-bottom: 20px;
 }
+
+.glitch-wrapper {
+    position: relative;
+    width: 150px; 
+    height: 150px;
+    margin: 0 auto;
+    cursor: pointer; 
+}
+
+.logo-glitch {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.2s ease; 
+}
+
+.logo-glitch.red,
+.logo-glitch.blue {
+    opacity: 0;
+    z-index: 1;
+
+}
+
+
+.logo-glitch.main {
+    z-index: 3;
+}
+
+
+.glitch-wrapper:hover .logo-glitch.red {
+    opacity: 0.7;
+    animation: glitch-anim-1 0.2s infinite;
+}
+
+.glitch-wrapper:hover .logo-glitch.blue {
+    opacity: 0.7;
+    animation: glitch-anim-2 0.3s infinite;
+}
+
+.glitch-wrapper:hover .logo-glitch.main {
+    animation: glitch-anim-main 0.1s infinite;
+}
+
+@keyframes glitch-anim-1 {
+    0% { transform: translate(0); filter: hue-rotate(0deg); }
+    20% { transform: translate(-10px, 6px); }
+    40% { transform: translate(10px, -6px); }
+    100% { transform: translate(0); }
+}
+
+@keyframes glitch-anim-2 {
+    0% { transform: translate(0); }
+    25% { transform: translate(8px, -4px); }
+    75% { transform: translate(-8px, 4px); }
+    100% { transform: translate(0); }
+}
+
+@keyframes glitch-anim-main {
+    0% { transform: translate(0); }
+    50% { transform: translate(1px, -1px); }
+    100% { transform: translate(0); }
+}
