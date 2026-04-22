@@ -52,18 +52,37 @@
 
         </div>
     </header>
+    <div class="dashboard-wrapper">
+        
+        <aside class="sidebar-summary">
+            <h2 class="summary-title">Resumo</h2>
+            <div class="summary-card">
+                <h3>Total de Atividades</h3>
+                <p id="total-atividades">0</p>
+            </div>
+            <div class="summary-card">
+                <h3>No Prazo</h3>
+                <p id="atividades-no-prazo">0</p>
+            </div>
+            <div class="summary-card vencendo-card">
+                <h3>Próximo do Prazo</h3>
+                <p id="atividades-vencendo">0</p>
+            </div>
+        </aside>
 
-    <main id="year-grid" class="year-container">
+        <div class="calendar-wrapper">
+            <main id="year-grid" class="year-container">
+                </main>
 
-    </main>
-
-    <main id="view-month" class="hidden">
-        <div class="calendar-controls">
-
+            <main id="view-month" class="hidden">
+                <div class="calendar-controls"></div>
+                <div class="calendar-detailed-grid" id="calendar-detailed-grid">
+                </div>
+            </main>
         </div>
-        <div class="calendar-detailed-grid" id="calendar-detailed-grid">
-        </div>
-    </main>
+        
+    </div>
+    
 
 
     <div id="modal-tarefa" class="modal hidden">

@@ -38,8 +38,12 @@ function renderTracker() {
         const cardHtml = `
             <div class="tracker-card ${statusClass}">
                 <div class="tracker-info">
-                    <h3>${tarefa.titulo} ${tarefa.concluida ? '✅' : ''}</h3>
+                    <h3>${tarefa.titulo} 
+                        ${tarefa.descricao ? `<p>${tarefa.descricao}</p>` : ''}
+                    </h3>
                     <p>Prazo: ${dataEntrega.toLocaleDateString('pt-BR')}</p>
+
+
                 </div>
                 <div class="tracker-days">
                     <span class="days-count">${tarefa.concluida ? "OK" : (diffDias < 0 ? "!" : diffDias)}</span>

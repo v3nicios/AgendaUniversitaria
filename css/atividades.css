@@ -15,7 +15,7 @@
     --accent-blue: #3182ce;
     --accent-green: #38a169;
 }
-
+/* Classe .	ID # */
 body {
     background: var(--background-gradient) no-repeat fixed; 
     min-height: 100vh; 
@@ -39,6 +39,25 @@ header button {
 
 }
 
+.section-em-dia{
+     color: white;
+     border-bottom: 2px solid var(--text-muted); 
+     padding-bottom: 10px; 
+     margin-top: 30px;
+}
+
+.section-concluidas{
+    color: white;
+     border-bottom: 2px solid var(--accent-blue); 
+     padding-bottom: 10px; 
+     margin-top: 30px;
+}
+.section-atrasadas{
+    color: white;
+     border-bottom: 2px solid var(--bg-color); 
+     padding-bottom: 10px; 
+     margin-top: 30px;
+}
 header button:hover {
     box-shadow: var(--button-hover-shadow-color) 0px 0px 6px;
     border: var(--input-focus-border-color) solid 1.5px;
@@ -75,7 +94,7 @@ h2 {
 
 .tracker-card {
     background: var(--card-bg);
-    border-left: 10px solid var(--accent-green); /* Cor padrão */
+    border: 2px solid var(--accent-green); 
     padding: 20px;
     border-radius: 12px;
     display: flex;
@@ -89,13 +108,17 @@ h2 {
     transform: translateY(-5px);
 }
 
-.status-urgente { border-left-color: var(--accent-red) !important; }
+.status-urgente { border-color: var(--accent-red) !important; }
 .status-atrasado { 
-    border-left-color: #000 !important; 
+    border-color: #000 !important; 
     background: #3d1414; 
 }
-.status-tranquilo { border-left-color: var(--accent-green) !important; }
+.status-tranquilo { border-color: var(--primary-color) !important; }
 
+.status-concluida { 
+    border-color: var(--accent-blue) !important; 
+    opacity: 0.8;
+}
 .tracker-info h3 { margin: 0; font-size: 1.1rem; }
 .tracker-info p { margin: 5px 0 0; font-size: 0.85rem; color: var(--text-muted); opacity: 0.8; }
 
@@ -129,10 +152,6 @@ h2 {
 
 .hidden { display: none !important; }
 
-.status-concluida { 
-    border-left-color: var(--accent-blue) !important; 
-    opacity: 0.8;
-}
 
 .card-actions {
     display: flex;
@@ -164,6 +183,7 @@ h2 {
     gap: 10px;
 }
 
+
 /* botão voltar */
 #btn-voltar {
   display: block;
@@ -177,6 +197,7 @@ h2 {
   cursor: pointer;
   border: 0;
 }
+
 
 
 

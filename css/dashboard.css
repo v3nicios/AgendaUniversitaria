@@ -16,6 +16,7 @@
     --accent-blue: #3182ce;
     --accent-green: #38a169;
 }
+/* Classe .	ID # */
 h3.texto {
     display: flex;
     align-items: center;
@@ -331,7 +332,7 @@ border: var(--button-hover-shadow-color) solid 1.5px;
 .bnt-cancelarmodal {
     width: 100%;
     padding: 12px;
-    background: red;
+    background: var(--accent-red);
     color: white;
     border: none;
     border-radius: 6px;
@@ -476,4 +477,99 @@ border: var(--button-hover-shadow-color) solid 1.5px;
   transition: 0.4s;
   transform: translateX(-56px);
   
+}
+
+
+
+.dashboard-wrapper {
+    display: flex;
+    gap: 25px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.sidebar-summary {
+    width: 250px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: sticky; 
+    top: 20px;
+}
+
+.summary-title {
+    margin: 0;
+    text-align: center;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.summary-card {
+    background-color: var(--primary-color);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid var(--button-border-color);
+}
+
+.summary-card h3 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.summary-card p {
+    margin: 10px 0 0 0;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.vencendo-card {
+    border-color: var(--accent-red);
+}
+
+.vencendo-card p {
+    color: var(--accent-red); 
+}
+
+.calendar-wrapper {
+    flex: 1; 
+    min-width: 0; 
+}
+
+
+.year-container {
+    max-width: 100%; 
+    margin: 0;
+}
+
+
+.day-vencendo { 
+    background-color: var(--accent-red) !important; 
+    color: white !important;
+    font-weight: bold;
+}
+
+.day-event { 
+    background-color: #718096 !important; 
+    color: white; 
+    border: 1px solid white;
+}
+
+.day-holiday { 
+    background-color: var(--accent-red); 
+    color: white; 
+    opacity: 0.8; 
+}
+
+.day-event-holiday {
+    border: 2px solid var(--accent-blue);
 }
