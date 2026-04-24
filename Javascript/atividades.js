@@ -47,7 +47,7 @@ function renderTracker() {
                 </div>
                 <div class="tracker-days">
                     <span class="days-count">${tarefa.concluida ? "OK" : (diffDias < 0 ? "!" : diffDias)}</span>
-                    <span class="days-label">${tarefa.concluida ? "Feito" : "Dias"}</span>
+                    <span class="days-label">${tarefa.concluida ? "Feito" : "Dia(s)"}</span>
                     
                     <div class="card-actions">
                         ${!tarefa.concluida ? `<button onclick="concluirTarefa(${tarefa.id})" class="btn-action btn-check">Concluir</button>` : ''}
